@@ -310,39 +310,6 @@ limitations under the License.
 
   </div>
 
-<footer>
-  <div class="l--body">
-    <button onclick="save();">Save to browser session</button>
-    <button onclick="reset();">Reset</button>
-    <button onclick="copyURL();">Copy permalink to clipboard</button><br>
-    <input type="text" id="url" name="url" readonly style="display: none;">
-  </div>
-
-</footer>
-
-<script>
-  const url = document.getElementById("url");
-  url.value = localStorage.getItem("url") || '';
-  if (url.value && url.value != window.location.href) {
-    window.location.replace(url.value)
-  }
-  function copyURL() {
-    url.value = window.location.href;
-    url.focus();
-    url.select();
-    url.setSelectionRange(0, 99999); /* For mobile devices */
-    document.execCommand("copy");
-  }
-  function save() {
-    url.value = window.location.href;
-    localStorage.setItem("url", url.value);
-  }
-  function reset() {
-    localStorage.removeItem("url", url.value);
-    window.location.replace(window.location.protocol + '//' + window.location.host + window.location.pathname);
-  }      
-</script>
-
   <!-- Footer -->
 <!--   <footer>
     <div class="l--body">
